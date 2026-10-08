@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render
 from .models import Kit
 from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate, get_user_model
 from django.contrib import messages
@@ -9,9 +10,9 @@ import logging
 logger = logging.getLogger(__name__)
 
 @login_required(login_url='register')
+
 def home(request):
-    kit = Kit.objects.all()
-    return render(request, "home.html", {"kit": kit})
+    return render(request, "home.html")
 
 
 def navigation(request):
