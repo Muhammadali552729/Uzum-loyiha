@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input {
+        width: 500px;
+    }
+
+    @media (max-width: 768px) {
+        input {
+            width: 800px;
+
+
+        }
+
+        .llhh {
+            width: 332px;
+        }
+
+
+    }
+</style>
+
+<body class="bg-slate-200 justify-center ">
+    <div class="wrp ">
+        <nav class="flex items-center  justify-between px-6 py-2 bg-gray-100  ">
+            <div class="flex items-center gap-8 ml-[30px] ">
+                <div class="flex items-center ">
+                    <i class="fa-solid fa-location-dot"></i> <span id="city" class="cursor-pointer text--600">
+                        Toshkent </span><i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+                <h1 class="text-[14px] text-[#656773] ml-[60px] lg:hidden w-[300px] justify-content">yetkazib
+                    beriladigan shahar
+                </h1>
+
+
+                <a href="#" class="hidden lg:block">Topshirish punktlari</a>
+            </div>
+
+            <div class="flex  gap-2 mr-[123px] justify-center ">
+                <a href=" {% url 'sotuvchi'  %}" class="text-purple-600 hidden lg:block">Sotuvchi bo'lish</a> l
+                <a href="{% url 'topshirish_punkitini_ochish'  %}" class="text-purple-600 hidden lg:block">Topshirish
+                    punktini ochish</a>
+                <a href="{% url 'savol_javob'  %}" class="hidden lg:block">Savol-javob</a>
+                <a href="#" class="hidden lg:block">Buyurtmalarim</a>
+
+                <div class="flex items-center gap-1 ">
+                    <img class="w-[20px] h-[20px] rounded-2xl hidden lg:block"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAAuCAMAAACS246gAAAAZlBMVEX///8whzgwgfdwZs38hH/8g4twbCsoiTgog/osf/cmffcZefcfe/c0g/c7hveTt/pgmPhTkfjH2Pz0+P+Hr/qcvPqnw/tHjPe3zvzn7v50pPnt8v58qPmvyPtqnvi+0/zc5/3U4v1YjVgiAAABBklEQVRYhe2Ty3KDMAxFVfeVawkwrhugBZL8/09WJCk4i25wvfOZEcgMc2wkRCYC5n+hLWV27bayVjfTMLJ/y1WOyn+EzSOfR4vWdwZ9sKlydDRwZEFQZ90vu3ztPvqvnL8JD5JbSTRsclnsSBNv4jhJ6PJdLj1FXz9r2mlzMWu4OlXOntwqr2mGnLzAUWfkfJREuUw0bu2sqiVwvd8uSXI9pOc/Xkn/z5e6yNV0byLiRaLc8IUcGxsuMPXgIFOvQzRozX2TPEQGHM5TC6elt40O5jwDdaPPR7d/iA4rlgUHYMk0HpN90HNG6CUjVCgUCoWY14zQW0boPSP0lJEiL/IiL/Ic/AA8+SKrFGtpSAAAAABJRU5ErkJggg=="
+                        alt=""> <span class="hidden lg:block">O'zbekcha</span>
+
+
+                </div>
+            </div>
+        </nav>
+        <div class="max-w-7xl mx-auto flex items-center justify-between py-3 px-6 justify-center ">
+            <img class="w-[215px] h-[32px] hidden lg:block"
+                src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Uzum-Market-Logo.png" alt="">
+            <button
+                class="flex items-center ml-[20px] gap-2 bg-purple-100 hover:bg-purple-200 text-purple-700 px-5 py-3 rounded-lg font-medium transition hidden lg:block"
+                id="toggleBtn">
+                <span>💳</span>
+                Katalog
+            </button>
+
+
+            <div class="flex flex-1 mx-6 w-[400px] ">
+                <input type="text" placeholder="Mahsulotlar va turkumlar izlash"
+                    class="w-full border border-gray-300 rounded-l-lg px-4 py-3 outline-none focus:border-purple-500 w-[500px]">
+                <button class="px-6 border border-l-0 border-gray-300 rounded-r-lg bg-gray-100 hover:bg-gray-200">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <div class="flex items-center gap-8 text-gray-700   ">
+
+                <button href="#" class="flex items-center gap-2 hover:text-purple-600 " id="tepelet">
+                    {% if user.is_authenticated %}
+                    <span>{{ user.username }}</span>
+                    <a href="{% url 'logout' %}">
+                        <i class="fa-solid fa-right-from-bracket" style="color: rgb(0, 92, 255);"></i>
+                    </a>
+                    {% else %}
+
+                    {% endif %}
+                </button>
+
+                <a href="#" class="flex items-center gap-2">
+                    <span class=" hidden lg:block"> <i class="fa-regular fa-heart  "></i> Saralangan</span>
+                </a>
+
+                <a href="#" class="flex items-center gap-2 hover:text-purple-600">
+                    <span class=" hidden lg:block"> <i class="fa-solid fa-shopping-cart "></i> Savat</span>
+                </a>
+
+            </div>
+
+        </div>
+        <div class="flex items-center gap-7 ml-[50px] px-5 py-3 text-sm text-gray-600 justify-center">
+
+            <a href="https://uzum.uz/uz/category/garantiya-nizkikh-cen--937"
+                class="flex items-center gap-2 text-black hidden lg:block">
+                <span>✅</span> Arzon narxlar kafolati
+            </a>
+            <a class="hidden lg:block" href="https://uzum.uz/uz/category/mebel-2894">Mebel</a>
+            <a class="hidden lg:block" href="https://uzum.uz/uz/category/turizm-baliq-ovi-va-10039">Turizm, baliq ovi va
+                ovchilik</a>
+            <a class="hidden lg:block" href="https://uzum.uz/uz/category/elektronika-10020">Elektronika</a>
+            <a class="hidden lg:block" href="https://uzum.uz/uz/category/maishiy-texnika-10004">Maishiy texnika</a>
+            <a class="hidden lg:block" href="https://uzum.uz/uz/category/kiyim-10014">Kiyim</a>
+            <a class="hidden lg:block" href="https://uzum.uz/uz/category/poyabzallar-10013">Poyabzallar</a>
+            <a class="hidden lg:block" href="https://uzum.uz/uz/category/aksessuarlar-10003">Aksessuarlar</a>
+            <a class="hidden lg:block" href="https://uzum.uz/uz/category/gozallik-va-parvarish-10012">Go'zallik va
+                parvarish</a>
+            <a class="hidden lg:block" href="https://uzum.uz/uz/category/salomatlik-10009">Salomatlik</a>
+            <a class="hidden lg:block" href="#">Yana <i class="fa-solid fa-angle-down"></i></a>
+
+        </div>
+    </div>
+    <div class="w-[1520px] h-[800px] flex  hidden lg:block  llhh" id="mydiv" style="display: block; display: none;">
+
+        <div class="flex uzbek hidden lg:block">
+            <div class="ml-[100px]">
+                <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                    <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                    <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                    <h1 class="text-[25px] ml-[20px]">></h1>
+                </div>
+                <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                    <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                    <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                    <h1 class="text-[25px] ml-[20px]">></h1>
+                </div>
+
+                <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                    <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                    <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                    <h1 class="text-[25px] ml-[20px]">></h1>
+                </div>
+
+                <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                    <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                    <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                    <h1 class="text-[25px] ml-[20px]">></h1>
+                </div>
+
+                <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                    <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                    <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                    <h1 class="text-[25px] ml-[20px]">></h1>
+                </div>
+
+                <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                    <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                    <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                    <h1 class="text-[25px] ml-[20px]">></h1>
+                </div>
+
+                <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                    <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                    <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                    <h1 class="text-[25px] ml-[20px]">></h1>
+                </div>
+
+                <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                    <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                    <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                    <h1 class="text-[25px] ml-[20px]">></h1>
+                </div>
+
+                <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                    <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                    <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                    <h1 class="text-[25px] ml-[20px]">></h1>
+                </div>
+
+                <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                    <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                    <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                    <h1 class="text-[25px] ml-[20px]">></h1>
+                </div>
+
+                <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                    <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                    <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                    <h1 class="text-[25px] ml-[20px]">></h1>
+                </div>
+                <div>
+                    <div class="w-[263px] h-[47px] mt-[20px] flex pt-[10px]">
+                        <img class="w-[32px] h-[32px ] " src="https://static.uzum.uz/baner/gnc1405.png" alt="">
+                        <h1 class="text-[14px] font-semibold  mt-[5px]">Arzon narxlar kafolati</h1>
+                        <h1 class="text-[25px] ml-[20px]">></h1>
+                    </div>
+                </div>
+            </div>
+            <div class="w-[2px] h-[798px] bg-[#656773] ml-[5px]"></div>
+        </div>
+        <div class="ml-[40px] mt-[20px]">
+            <h1 class="text-[18px] hidden lg:block">
+
+                Reabilitatsiya uchun subsidiyalangan mahsulotlar ></h1>
+            <div class="flex text-[14px] mt-[20px] hidden lg:block ">
+                <h1>Bolalar yurgichi
+                </h1>
+                <h1 class="ml-[120px] hidden lg:block"> Brayl alifbosi
+                </h1>
+                <h1 class="ml-[120px] hidden lg:block"> Elektr skuter</h1>
+            </div>
+            <div class="flex text-[14px] mt-[30px] hidden lg:block">
+                <h1>Bolalar yurgichi
+                </h1>
+                <h1 class="ml-[120px ] hidden lg:block"> Brayl alifbosi
+                </h1>
+                <h1 class="ml-[120px] hidden lg:block"> Elektr skuter</h1>
+            </div>
+            <div class="flex text-[14px] mt-[30px] hidden lg:block">
+                <h1>Bolalar yurgichi
+                </h1>
+                <h1 class="ml-[120px] hidden lg:block"> Brayl alifbosi
+                </h1>
+                <h1 class="ml-[120px] hidden lg:block"> Elektr skuter</h1>
+            </div>
+            <div class="flex text-[14px] mt-[30px] hidden lg:block">
+                <h1>Bolalar yurgichi
+                </h1>
+                <h1 class="ml-[120px]  hidden lg:block"> Brayl alifbosi
+                </h1>
+                <h1 class="ml-[120px] hidden lg:block"> Elektr skuter</h1>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    </div>
+    <div class="absolute z-[50]">
+        <div id="modal" class="hidden fixed inset-0 bg-black/40 flex justify-center items-center px-[40px]">
+            <div class="bg-white w-[700px] h-[500px] rounded-lg relative p-5">
+                <button id="" class="absolute top-3 right-3 text-2xl">
+                    X
+                </button>
+
+                <h1 class="text-3xl font-semibold">Shaharni tanlang</h1>
+                <input class="w-[584px] h-[48px] bg-[#edeff2] rounded-[15px] p-[20px] text-[24px] mt-[20px]" type="text"
+                    placeholder="Shaharni topish" />
+                <h1 class="text-[24px] mt-[10px]">Abukarim</h1>
+                <div class="w-[584px] h-[1px] bg-[#edeff2] mt-[10px]"></div>
+                <h1 class="text-[24px] mt-[10px]">Ahmad Yassaviy</h1>
+                <div class="w-[584px] h-[1px] bg-[#edeff2] mt-[10px]"></div>
+                <h1 class="text-[24px] mt-[10px]">Alaja</h1>
+                <div class="w-[584px] h-[1px] bg-[#edeff2] mt-[10px]"></div>
+                <h1 class="text-[24px] mt-[10px]">Alamli</h1>
+                <div class="w-[584px] h-[1px] bg-[#edeff2] mt-[10px]"></div>
+                <h1 class="text-[24px]">Altinkol</h1>
+                <div class="w-[584px] h-[1px] bg-[#edeff2] mt-[10px]"></div>
+                <h1 class="text-[24px]">Andijon</h1>
+                <div class="w-[584px] h-[1px] bg-[#edeff2] mt-[10px]"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const myDiv = document.getElementById('mydiv');
+
+        toggleBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (myDiv.style.display === 'none') {
+                myDiv.style.display = 'block';
+            } else {
+                myDiv.style.display = 'none';
+            }
+        });
+        const city = document.getElementById("city");
+        const modal = document.getElementById("modal");
+        const close = document.getElementById("close");
+
+        city.onclick = function () {
+            modal.classList.remove("hidden");
+            if (city.style.display === 'none') {
+
+            } else {
+                city.button = 'x';
+            }
+        };
+
+
+    </script>
+</body>
+
+</html>

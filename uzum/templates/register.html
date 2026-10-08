@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="bg-[#f3e8ff] flex  h-[900px] pl-[300px] p-[20px] gap-[px] pt-[50px]">
+
+
+        <div class="w-[480px] h-[700px] bg-[#7000ff] rounded-l-[30px]  justify-center  p-[20px]">
+            <a href="https://ibb.co/bgY7dssS"><img
+                    src="https://i.ibb.co/mCdSz99L/Chat-GPT-Image-Aug-19-2026-09-26-00-PM.png"
+                    alt="Chat-GPT-Image-Aug-19-2026-09-26-00-PM" border="0" /></a>
+
+            <h1 class="text-[32px] text-white ml-[15px]">Xarid qlish endi <br> <span class="text-yellow-300">yanada
+                    oson</span></h1>
+            <p class="text-[22px] text-white ml-[15px] mt-[15px]">Uzum Id blan barcha xizmatlardan foydalaning </p>
+        </div>
+
+        <div class="w-[480px] h-[700px] bg-white rounded-r-[30px]">
+            <h1 class="text-[#7000ff] text-[42px] font-bold ml-[100px] mt-[10px]">Xush kelibsiz</h1>
+            <h2 class="text-[#7e7299] text-[28px] ml-[20px]">Hisobingizni yarating</h2>
+            <i class="fa-solid fa-user absolute ml-[40px] pt-[22px] text-[#7000ff]"></i>
+            <form method="Post">
+                {% csrf_token %}
+                <input class="w-[400px] h-[50px] bg-[#e6e8ed] pl-[50px] ml-[20px] mt-[5px] rounded-[10px]" type="text"
+                    placeholder="Username " name="username">
+                <input
+                    class="w-[400px] h-[50px] bg-[#e6e8ed] pl-[50px] ml-[20px] mt-[5px] rounded-[10px] text-[#8f88a1]"
+                    type="text" placeholder="Email" name="email">
+                <i class="fa-solid fa-envelope absolute text-[#7000ff] ml-[-375px] mt-[25px]"></i>
+
+                <input
+                    class="w-[400px] h-[50px] bg-[#e6e8ed] pl-[50px] ml-[20px] mt-[5px] rounded-[10px] text-[#8f88a1]"
+                    type="text" placeholder=" password" name="pasword">
+                <i class="fa-solid fa-lock absolute text-[#7000ff] ml-[-375px] mt-[25px]"></i>
+                <i class="fa-solid fa-eye text-[#8f88a1] ml-[-40px] absolute mt-[25px]"></i>
+
+                <input
+                    class="w-[400px] h-[50px] bg-[#e6e8ed] pl-[50px] ml-[20px] mt-[5px] rounded-[10px] text-[#8f88a1]"
+                    type="text" placeholder=" password br tasdiqlang" name="parolni_tasdiqlash">
+                <i class="fa-solid fa-lock absolute text-[#7000ff] ml-[-375px] mt-[25px]"></i>
+                <i class="fa-solid fa-eye absolute ml-[-40px] text-[#8f88a1] mt-[25px]"></i>
+
+                <button
+                    class="w-[400px] h-[60px] bg-[#7000ff] rounded-[10px] text-white text-[22px] p-[14px] p-[10px] mt-[20px] pl-[30px] ml-[20px]">Tasdiqlash</button>
+            </form>
+            <div class="flex justify-center items-center">
+                <div class="w-[150px] h-[1px] bg-[#e6e8ed] mt-[50px] ml-[0px]"></div>
+                <h1 class="text-[#7e7299] text-[18px] pt-[40px] ml-[10px]">Yoki</h1>
+                <div class="w-[150px] h-[1px] bg-[#e6e8ed] mt-[50px] ml-[20px]"></div>
+            </div>
+            <div class="w-[350px] h-[50px] bg-[#e6e8ed] flex p-[15px] ml-[20px] mt-[20px] rounded-[10px]">
+                <i class="fa-brands fa-google text-[18px] text-[#7e7299] pt-[3px] "></i>
+                <h1 class="text-[#7e7299] text-[18px] pl-[20px] ">Google blan davom eting </h1>
+            </div>
+
+            <div class="w-[350px] h-[50px] bg-[#e6e8ed] flex p-[15px] ml-[20px] mt-[20px] rounded-[10px]">
+                <i class="fa-brands fa-apple  text-[18px] text-[#7e7299] pt-[3px] text-black"></i>
+                <h1 class="text-[#7e7299] text-[18px] pl-[20px] ">Apple blan davom eting </h1>
+            </div>
+
+            <a href="{% url 'login' %}">
+                
+                <button>
+                    <h1 class="text-[16px] text-[#7e7299] ml-[30px] mt-[10px]">Hisobingiz bormi? <span
+                            class="text-[16px] text-[#7000ff]">Kirish</span></h1>
+                </button></a>
+                
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class=" ">
+  <style>
+    .container {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    html,
+    body {
+      position: relative;
+      height: 100%;
+
+    }
+
+    body {
+      font-family:
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+      font-size: 14px;
+
+      margin: 0;
+      padding: 0;
+    }
+
+    swiper-container {
+      width: 1200px;
+      height: 100%;
+
+    }
+
+    .pip {
+      margin-top: 10px;
+      background-color: #d0d0d0;
+      color: #000;
+      display: flex;
+      width: 300px;
+      height: 70px;
+      margin-left: 20px;
+    }
+
+    p img {
+      width: 50px;
+      height: 50px;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      height: 413px;
+      width: 600px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 1200px;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+
+      swiper-slide img {
+        width: 370px;
+        height: 149px;
+        border-radius: 15px;
+        position: absolute;
+        top: 55px;
+      }
+
+      swiper-container {
+        width: 350px;
+        height: 1499px;
+        margin-left: 50px;
+        border-radius: 15px;
+        position: absolute;
+        top: 55px;
+        margin-left: px;
+
+      }
+
+      .uzbek {
+        margin-left: px;
+        position: absolute;
+        top: 320px;
+        margin-left: 60px;
+      }
+    }
+  </style>
+  <div class=" ">
+    <swiper-container class="mySwiper" space-between="30" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+      <swiper-slide class=""><img src="https://images.uzum.uz/d969q349g1ku9j5h2s40/main_page_banner.jpg"
+          alt=""></swiper-slide>
+      <swiper-slide><img src="https://images.uzum.uz/d969j0bsv8vsdeu70egg/main_page_banner.jpg" alt=""></swiper-slide>
+      <swiper-slide><img src="https://images.uzum.uz/d969lhi1146phmqiti4g/main_page_banner.jpg" alt=""></swiper-slide>
+      <swiper-slide><img src="https://images.uzum.uz/d969n821146phmqitj6g/main_page_banner.jpg" alt=""></swiper-slide>
+      <swiper-slide><img src="https://images.uzum.uz/d969e3k9g1ku9j5h2l3g/main_page_banner.jpg" alt=""></swiper-slide>
+      <swiper-slide><img src="https://images.uzum.uz/d969obrsv8vsdeu70hc0/main_page_banner.jpg" alt=""></swiper-slide>
+      <swiper-slide><img src="https://images.uzum.uz/d92e3tbsv8vnuj12cik0/main_page_banner.jpg" alt=""></swiper-slide>
+      <swiper-slide><img src="https://images.uzum.uz/d91q6srsv8vnuj124abg/main_page_banner.jpg" alt=""></swiper-slide>
+    </swiper-container>
+    <div class="flex items-center justify-center  uzbek">
+      <div class="hidden lg:block">
+        <p class=" pip gap-[35px] rounded-[15px] flex items-center justify-center hidden lg:block"><img
+            class="mt-[10px] hidden lg:block"
+            src="https://static.uzum.uz/static/promo_images/756b6f56-9d2d-414c-a9d3-37d40d1c808b" alt=""> Детский мир
+        </p>
+      </div>
+      <div class="hidden lg:block">
+        <p class=" pip gap-[35px] rounded-[15px] flex items-center justify-center hidden lg:block"><img
+            class="mt-[10px] hidden lg:block"
+            src="https://static.uzum.uz/static/promo_images/67a3f24c-26d4-4fbb-adcf-ef3181707132" alt="">Футбол</p>
+      </div>
+      <div class="hidden lg:block">
+        <p class=" pip gap-[35px] rounded-[15px] flex items-center justify-center hidden lg:block"><img
+            class="mt-[10px] hidden lg:block"
+            src="https://static.uzum.uz/static/promo_images/4f28d325-14b1-4ad4-b839-eb4509492cdd" alt="">Модны базар</p>
+      </div>
+      <div class="hidden lg:block">
+        <p class=" pip gap-[35px] rounded-[15px] flex items-center justify-center hidden lg:block"><img
+            class="mt-[10px] hidden lg:block"
+            src="https://static.uzum.uz/static/promo_images/622b993e-c70d-4d4e-b159-98020a0777ef" alt="">Чилля</p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-element-bundle.min.js"></script>
+  </div>
+</div>
+
+<div class="flex ml-[100px]">
+  {% for kit in kit %}
+
+  <div class="flex">
+    <section class=" uzbek">
+
+      <div class="hidden lg:block sm:hidden md:hidden ">
+        <div class="flex gap-2  ">
+          <section class="flex">
+            <div class="flex text-[28px] gap-5 items-center ml-[15px]  ">
+
+            </div>
+            <div class="flex">
+              <div class="mt-[60px] ml-[px] flex gap-10">
+                <div>
+                  <i class="fa-regular fa-heart absolute z-10 ml-[212px]"></i>
+                  {%if kit.aktiv%}
+                  <div class=" flex bg-white rounded-[8px] text-[8px] absolute z-10  p-[2px] rounded-sm mt-[295px] ">
+                    <img class="w-[12px] h-[12px]" src="https://static.uzum.uz/market/badge-icons/verified.png" alt="">
+                    <h1>ORGINAL</h1>
+                  </div>
+                  {% endif%}
+                  <a href="{% url 'detail' kit.id %}"> <img class=" w-[232px] h-[310px] rounded-[5px]"
+                      src="{{kit.liga.url}}" alt=""></a>
+
+                  <h1 class="text-[20px]">{{kit.narxi}}</h1>
+                  <h1 class="text-[12px] text-zinc-400">{{kit.narxi1}}</h1>
+                  <h1 class="bg-[#ffff00] w-[143px] ps-[8px] mt-2 mb-2 rounded-[5px]">{{kit.namc}}</h1>
+                  <h1 class="w-[240px]">{{kit.tavk}}</h1>
+                  <div class="flex gap-2 mt-2 mb-2">
+                    <h1>{{kit.namr}}</h1>
+                    <h1 class="text-[#4d4f29]">{{kit.tavt}}</h1>
+                  </div>
+                  <div
+                    class="bg-[#7000ff] flex w-[224px] h-[32px] items-center text-white justify-center font-bold rounded-[5px]">
+                    <i class="fa-solid fa-basket-shopping "></i>
+                    Ertaga
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+{% endblock %}

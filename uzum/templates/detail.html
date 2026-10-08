@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+</head>
+
+<style>
+    html,
+    body {
+        position: relative;
+        height: 100%;
+    }
+
+    body {
+
+        font-family:
+            Helvetica Neue,
+            Helvetica,
+            Arial,
+            sans-serif;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    swiper-container {
+
+
+        margin-left: 25px;
+    }
+
+    swiper-slide {
+
+        font-size: 18px;
+
+
+    }
+
+    swiper-slide img {
+        display: block;
+
+
+        object-fit: cover;
+    }
+</style>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="uz">
+
+    <head>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class="bg-gray-100">
+
+        <!-- 1. Tepada turadigan asosiy blok (skroll qilinganda bundan o'tib ketiladi) -->
+        <div id="trigger-element" class="p-6 bg-white border-b">
+
+
+            <nav cass="flex items-center  justify-between px-6 py-2 bg-gray-100">
+                <div class="flex ">
+                    <div class="flex items-center gap-8 ml-[30px] ">
+                        <div class="bg-[#f0f0f7] w-[140px] rounded-[10px] h-[50px] flex items-center justify-center">
+                            <a href="{% url 'home' %}"><button>bosh sahifa</button></a>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <i class="fa-solid fa-location-dot"></i> <span id="city" class="cursor-pointer text--600">
+                                Toshkent </span<i class="fa-solid fa-angle-down"></i>
+
+                        </div>
+                        <h1 class="text-[14px] text-[#656773] ml-[60px] lg:hidden w-[300px]">yetkazib beriladigan shahar
+                        </h1>
+
+
+                        <a href="#" class="hidden lg:block">Topshirish punktlari</a>
+                    </div>
+
+                    <div class="flex items-center gap-6  ml-[450px] ">
+                        <a href="sotuvchi_bolish/" class="text-purple-600 hidden lg:block">Sotuvchi bo'lish</a> l
+                        <a href="topshirish_punkitini_ochish/" class="text-purple-600 hidden lg:block">Topshirish
+                            punktini ochish</a>
+                        <a href="savol/" class="hidden lg:block">Savol-javob</a>
+                        <a href="#" class="hidden lg:block">Buyurtmalarim</a>
+
+                        <div class="flex items-center gap-1 hidden lg:block">
+                            <div class="flex"> <img class="w-[20px] h-[20px] rounded-2xl hidden lg:block"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAAuCAMAAACS246gAAAAZlBMVEX///8whzgwgfdwZs38hH/8g4twbCsoiTgog/osf/cmffcZefcfe/c0g/c7hveTt/pgmPhTkfjH2Pz0+P+Hr/qcvPqnw/tHjPe3zvzn7v50pPnt8v58qPmvyPtqnvi+0/zc5/3U4v1YjVgiAAABBklEQVRYhe2Ty3KDMAxFVfeVawkwrhugBZL8/09WJCk4i25wvfOZEcgMc2wkRCYC5n+hLWV27bayVjfTMLJ/y1WOyn+EzSOfR4vWdwZ9sKlydDRwZEFQZ90vu3ztPvqvnL8JD5JbSTRsclnsSBNv4jhJ6PJdLj1FXz9r2mlzMWu4OlXOntwqr2mGnLzAUWfkfJREuUw0bu2sqiVwvd8uSXI9pOc/Xkn/z5e6yNV0byLiRaLc8IUcGxsuMPXgIFOvQzRozX2TPEQGHM5TC6elt40O5jwDdaPPR7d/iA4rlgUHYMk0HpN90HNG6CUjVCgUCoWY14zQW0boPSP0lJEiL/IiL/Ic/AA8+SKrFGtpSAAAAABJRU5ErkJggg=="
+                                    alt=""> <span class="hidden lg:block">O'zbekcha</span></div>
+
+
+                        </div>
+                    </div>
+                </div>
+                </nav>
+        </div>
+
+        <!-- 2. Sticky Navbar: Boshida tepadan yashiringan (-translate-y-full) va shaffof (opacity-0) -->
+
+        <div id="sticky-header" class="fixed top-0 left-0 w-full bg-white p-4 border-b shadow-md z-50 
+                  transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class=" items-center gap-2">
+                    <h1 class="text-[20px] font-bold"> {{kit.narxi}}
+                        so'm <br>
+                        <h1 class="text-[16px] text-[#7e818c]">{{kit.narxi1}}</h1>
+                    </h1>
+                    <div class="flex"> <span class="text-yellow-500 font-bold">4.9 ★</span>
+                        <span class="text-sm text-gray-500">(2249 sharh)</span>
+                    </div>
+                </div>
+                <button class="bg-purple-600 text-white px-5 py-2 rounded-xl font-medium">
+                    Savatga qo'shish
+                </button>
+            </div>
+        </div>
+
+        <!-- Asosiy skroll bo'ladigan kontent -->
+
+
+        <!-- JavaScript logic -->
+        <script>
+            const trigger = document.getElementById('trigger-element');
+            const header = document.getElementById('sticky-header');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Agar asosiy blok ekrandan chiqib ketsa (pastga skroll qilinsa)
+                    if (!entry.isIntersecting) {
+                        header.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                        header.classList.add('translate-y-0', 'opacity-100');
+                    } else {
+                        // Tepaga qaytilganda yashirish
+                        header.classList.remove('translate-y-0', 'opacity-100');
+                        header.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                    }
+                });
+            }, { threshold: 0 });
+
+            observer.observe(trigger);
+        </script>
+    </body>
+
+    </html>
+
+
+
+    <div class="flex text-[#7e818c] text-[14px] mt-[20px] ml-[200px] hidden lg:block">
+        <h1>Bosh sahifa>
+            Barcha toifalar>
+            Goʻzallik va parvarish>
+            Erkaklar uchun>
+            Tana parvarishi>
+            Erkaklar uchun dezodorantlar va antiperspirantlar>
+            Erkaklar uchun dezodorantlar va antiperspirantlar></h1>
+    </div>
+
+
+    <div class="sm:flex">
+        <div class="flex">
+            <div class="ml-[25px] mt-[50px] hidden lg:block ">
+                <img class="w-[63px] h-[84px]  rounded-[11px] mt-[5px]" src="{{kit.liga.url}}" alt="">
+                <img class="w-[63px] h-[84px]  rounded-[11px] mt-[5px]" src="{{kit.lige.url}}" alt="">
+                <img class="w-[63px] h-[84px]  rounded-[11px] mt-[5px]" src="{{kit.ligq.url}}" alt=""> <img
+                    class="w-[63px] h-[84px]  rounded-[11px] mt-[5px]" src="{{kit.ligb.url}}" alt="">
+                <img class="w-[63px] h-[84px]  rounded-[11px] mt-[5px]" src="{{kit.ligv.url}}" alt="">
+            </div>
+            <div class=" w-[460px] h-[560px] lg:w-[390px] h-[519px] " style="background-image: url('{{kit.liga.url}}');
+ background-position: 50%; border-radius: 50px;  display: flex;">
+
+                <div></div>
+            </div>
+        </div>
+
+        <div class="mt-[25px] ml-[40px]">
+            <h1 class="text-[24px] font-bold"> NIVEA MEN erkaklar uchun <br> dezodorant sprey, qora va oq uchun <br>
+                ko'rinmas himoya, 150 ml</h1>
+            <div class="flex">
+                <h1>⭐️⭐️⭐️⭐️⭐️</h1>
+                <h1 class="text-[14px] text-[#8b8e99]">4.9 (
+                    2248 sharh)
+                </h1>
+                <h1 class="">.</h1>
+                <h1 class="text-[14px] text-[#8b8e99]"> 29 fotosurat
+                    . 12000+ buyurtma .
+                    badge-icon
+                </h1>
+            </div>
+            <div class="flex mt-[30px]"><img class="w-[12px] h-[12px]"
+                    src="https://static.uzum.uz/market/badge-icons/verified.png" alt="">
+                <h1 class="text-[8px]">ORIGINAL</h1>
+            </div>
+        </div>
+        <div>
+
+
+            <div
+                class="w-[385px] h-[453px] border-2 border-zinc-300 rounded-[25px] mt-[25px] ml-[10px] pt-[10px] pl-[20px]">
+                <h1 class="text-[32px] font-bold"> {{kit.narxi}}
+                    so'm <br>
+                    <h1 class="text-[16px] text-[#7e818c]">{{kit.narxi1}}</h1>
+                </h1>
+                <div class="w-[343px] h-[92px] bg-[#f0f2f5] mt-[20px] pl-[10px] pt-[15px] rounded-[15px] mt-">
+                    <div class="w-[319px] h-[32px] bg-[#e9ebf0] rounded-[8px] flex pt-[2px] pl-[2px]">
+                        <div
+                            class="w-[82px] h-[28px] pl-[2px] pt-[2px] text-[12px] text-center pt-[5px] bg-[#fff] rounded-[4px]">
+                            <h1>24oy</h1>
+                        </div>
+                        <div
+                            class="w-[82px] h-[28px] pl-[2px] pt-[2px] text-[12px] text-center pt-[5px] text-[#8b8e99]">
+                            <h1>12oy</h1>
+                        </div>
+                        <div
+                            class="w-[82px] h-[28px] pl-[2px] pt-[2px] text-[12px] text-center pt-[5px] text-[#8b8e99]">
+                            <h1>6oy</h1>
+                        </div>
+                        <div
+                            class="w-[82px] h-[28px] pl-[2px] pt-[2px] text-[12px] text-center pt-[5px] text-[#8b8e99]">
+                            <h1>3oy</h1>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div
+                            class="w-[97px] h-[24px] bg-[#ffff00]  text-[16px] text-center pt-[px] font-bold mt-[10px]">
+                            <h1>2 549 so'm</h1>
+                        </div>
+                        <h1 class="text-[12px] mt-[13px]">X24oy</h1>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div
+                        class="bg-[#e6e8ed] w-[270px] h-[48px] rounded-[12px] mt-[20px] text-[16px] text-center pt-[8px] font-semibold ">
+                        <h1>1 klikda xarid qilish</h1>
+                    </div>
+                    <div
+                        class="w-[61px] h-[48px] text-[24px] bg-[#e6e8ed] text-center pt-[7px] ml-[10px] mt-[20px] rounded-[12px]">
+                        <i class="fa-regular fa-heart  "></i>
+                    </div>
+                </div>
+                <div class="w-[343px] h-[56px] bg-[#7000FF] pt-[5px] text-center rounded-[15px] mt-[20px] text-[#fff]">
+                    <h1 class="text-[16px] font-semibold">Savatga qoʻshish
+                    </h1>
+                    <h1 class="text-[12px]"> Ertaga yetkazib beramiz</h1>
+                </div>
+                <div class="flex mt-[10px]">
+                    <div class="bg-green-200 w-[24px] h-[24px] rounded-[5px] text-[16px]"><i
+                            class="fa-solid fa-check"></i></div>
+                    <h1 class="text-[14px] ml-[10px] ">790 dona xarid qilish mumkin</h1>
+                </div>
+                <div class="flex mt-[10px]"><img class="w-[24px] h-[24px] "
+                        src="https://static.uzum.uz/market/product-action/shopping-bag-check-line.png" alt="">
+                    <h1 class="text-[14px] ml-[10px] ">Bu haftada 255 kishi sotib oldi</h1>
+                </div>
+            </div>
+
+            <div
+                class="w-[385px] mt-[20px] h-[81px] border-2 border-zinc-300 rounded-[25px] ml-[10px] text-center pt-[5px]">
+                <h1 class="text-[20px] font-semibold"> Ertaga yetkazib beramiz</h1>
+                <h1 class="text-[12px]">Topshirish punktiga yoki kuryer orqali</h1>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <div class="flex mt-[10px] ml-[25px]">
+        <h1 class="text-[22px]">4.9</h1>
+        <h1>⭐️⭐️⭐️⭐️⭐️</h1>
+        <h1 class="text-[#7e818c] text-[14px]">2249 sharh</h1>
+    </div>
+    <div class="sm:flex">
+        <div>
+            <div class="ml-[25px] flex mt-[10px hidden lg:block]">
+                <img class="w-[86px] h-[86px] rounded-[5px]"
+                    src="https://images.uzum.uz/d9lrssi1146g73i1nr9g/feedback_40.jpg" alt="">
+                <img class="w-[86px] h-[86px] ml-[5px] rounded-[5px]"
+                    src="https://images.uzum.uz/d9e83jq1146g73hu5hf0/feedback_40.jpg" alt="">
+                <img class="w-[86px] h-[86px] ml-[5px] rounded-[5px]"
+                    src="https://images.uzum.uz/d9al5sbsv8vsdeu90lm0/feedback_40.jpg" alt="">
+                <img class="w-[86px] h-[86px] ml-[5px] rounded-[5px]"
+                    src="https://images.uzum.uz/d9b8ihk9g1ku9j5jc77g/feedback_40.jpg" alt="">
+                <img class="w-[86px] h-[86px] ml-[5px] rounded-[5px]"
+                    src="https://images.uzum.uz/d95ogobsv8vsdeu6q220/feedback_40.jpg" alt="">
+                <img class="w-[86px] h-[86px] ml-[5px] rounded-[5px]"
+                    src="https://images.uzum.uz/d8jviabsv8vo2t0kpgug/feedback_40.jpg" alt="">
+                <img class="w-[86px] h-[86px] ml-[5px] rounded-[5px]"
+                    src="https://images.uzum.uz/d8h6nga1146tv075acp0/feedback_40.jpg" alt="">
+                <img class="w-[86px] h-[86px] ml-[5px] rounded-[5px]"
+                    src="https://images.uzum.uz/d88v2ebsv8vo2t0h1150/feedback_40.jpg" alt="">
+                <img class="w-[86px] h-[86px] ml-[5px] rounded-[5px]"
+                    src="https://images.uzum.uz/d8kg0ejsv8vo2t0kuso0/feedback_40.jpg" alt="">
+                <img class="w-[86px] h-[86px] ml-[5px] rounded-[5px]"
+                    src="https://images.uzum.uz/d8600pq1146tv071calg/feedback_40.jpg" alt="">
+            </div>
+            <swiper-container class="mySwiper mt-[20px]  w-[390px] h-[167px] lg:w-[1010px] h-[170px]" space-between="30"
+                slides-per-view="2">
+                <swiper-slide>
+                    <div
+                        class="w-[252px] h-[167px] p-[20px]   border-2 border-zinc-300 rounded-[25px] lg:w-[488px] h-[170px]">
+                        <div class="text-[14px] flex ">
+                            <h1>Безмыни</h1>
+                            <h1 class="ml-[60px] lg:ml-[300px]">⭐️⭐️⭐️⭐️⭐️</h1>
+                        </div>
+                        <h1 class="text-[12px] text-[#8b8e99]">31 iyul</h1>
+                        <div>
+                            <h1>Afzaliklar:Yaxshi hidi</h1>
+                            <h1>Kamchiliklari:Yo'q</h1>
+                            <h1>Izoh:Osela boladi</h1>
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div
+                        class="w-[252px] h-[167px] p-[20px] ml-[60px]  border-2 border-zinc-300 rounded-[25px] lg:w-[488px] h-[170px]">
+                        <div class="text-[14px] flex ">
+                            <h1>Безмыни</h1>
+                            <h1 class="ml-[60px] lg:ml-[300px]">⭐️⭐️⭐️⭐️⭐️</h1>
+                        </div>
+                        <h1 class="text-[12px] text-[#8b8e99]">31 iyul</h1>
+                        <div>
+                            <h1>Afzaliklar:Yaxshi hidi</h1>
+                            <h1>Kamchiliklari:Yo'q</h1>
+                            <h1>Izoh:Osela boladi</h1>
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div
+                        class="w-[252px] h-[167px] ml-[120px] p-[20px]  border-2 border-zinc-300 rounded-[25px] lg:w-[488px] h-[170px]">
+                        <div class="text-[14px] flex ">
+                            <h1>Безмыни</h1>
+                            <h1 class="ml-[60px] lg:ml-[300px]">⭐️⭐️⭐️⭐️⭐️</h1>
+                        </div>
+                        <h1 class="text-[12px] text-[#8b8e99]">31 iyul</h1>
+                        <div>
+                            <h1>Afzaliklar:Yaxshi hidi</h1>
+                            <h1>Kamchiliklari:Yo'q</h1>
+                            <h1>Izoh:Osela boladi</h1>
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div
+                        class="w-[252px] h-[167px] p-[20px] ml-[180px]  border-2 border-zinc-300 rounded-[25px] lg:w-[488px] h-[170px]">
+                        <div class="text-[14px] flex ">
+                            <h1>Безмыни</h1>
+                            <h1 class="ml-[60px] lg:ml-[300px]">⭐️⭐️⭐️⭐️⭐️</h1>
+                        </div>
+                        <h1 class="text-[12px] text-[#8b8e99]">31 iyul</h1>
+                        <div>
+                            <h1>Afzaliklar:Yaxshi hidi</h1>
+                            <h1>Kamchiliklari:Yo'q</h1>
+                            <h1>Izoh:Osela boladi</h1>
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div
+                        class="w-[252px] h-[167px] p-[20px] ml-[240px]  border-2 border-zinc-300 rounded-[25px] lg:w-[488px] h-[170px]">
+                        <div class="text-[14px] flex ">
+                            <h1>Безмыни</h1>
+                            <h1 class="ml-[60px] lg:ml-[300px]">⭐️⭐️⭐️⭐️⭐️</h1>
+                        </div>
+                        <h1 class="text-[12px] text-[#8b8e99]">31 iyul</h1>
+                        <div>
+                            <h1>Afzaliklar:Yaxshi hidi</h1>
+                            <h1>Kamchiliklari:Yo'q</h1>
+                            <h1>Izoh:Osela boladi</h1>
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div
+                        class="w-[252px] h-[167px] p-[20px] ml-[300px] border-2 border-zinc-300 rounded-[25px] lg:w-[488px] h-[170px]">
+                        <div class="text-[14px] flex ">
+                            <h1>Безмыни</h1>
+                            <h1 class="ml-[60px] lg:ml-[300px]">⭐️⭐️⭐️⭐️⭐️</h1>
+                        </div>
+                        <h1 class="text-[12px] text-[#8b8e99]">31 iyul</h1>
+                        <div>
+                            <h1>Afzaliklar:Yaxshi hidi</h1>
+                            <h1>Kamchiliklari:Yo'q</h1>
+                            <h1>Izoh:Osela boladi</h1>
+                        </div>
+                    </div>
+                </swiper-slide>
+
+
+                <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-element-bundle.min.js"></script>
+                </swiper-contain>
+                <div class="w-[992px] h-[56px] bg-[#e6e8ed]  text-center p-[18px] font-semibold mt-[0px]">
+                    <h1>Hamma sharhlarni koʻrish</h1>
+                </div>
+        </div>
+        <div>
+            <div class="w-[385px] h-[195px] border-2 border-zinc-300 rounded-[25px]  p-[16px] sm:ml-[90px]">
+                <h1 class="text-[14px]  font-semibold">Qulay usulda xavfsiz toʻlov</h1>
+                <h1 class="text-[14px] text-[#4d4f59]">Karta orqali, naqd pulda yoki boʻlib toʻlang</h1>
+                <div class="flex pt-[12px]"><img class="w-[32px] h-[21px] rounded-[10px] mt-[10]"
+                        src="/static/img/2q9uyqhuzg92fep7r5cfd9utl4wgdcus.png" alt="">
+                    <img class="w-[32px] h-[32px] rounded-[10px] ml-[5px] " src="/static/img/unnamed.webp" alt="">
+                    <img class="w-[32px] h-[32px] rounded-[10px] ml-[5px]"
+                        src="https://play-lh.googleusercontent.com/DZ0vlLMziHzhz9xeKpkyO4gvReMK167b8MPNKdyxF2QjS7zfiNR4Jhsj3f43dRFAX6XcpOH5gtTyXEBMFfvkBg=w240-h480-rw"
+                        alt="">
+                    <img class="w-[32px] h-[21px] rounded-[10px] mt-[9] ml-[5px]" src="/static/img/humo-logo-more.png"
+                        alt="">
+                    <img class="w-[32px] h-[21px] rounded-[10px]mt-[10] ml-[5px]"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQghJPCsPLbbHX0Kl6tzaMyLbwBeq75OtZQ9n_hE3eyKQ&s"
+                        alt="">
+                    <img class="w-[32px] h-[21px] rounded-[10px]mt-[10] ml-[5px]" src="/static/img/visa.png" alt="">
+                </div>
+                <div class="w-[351px] h-[1px]  bg-black mt-[5px]"></div>
+
+                <h1 class="text-[14px] font-semibold  mt-[5px]">Qaytarish oson va tez</h1>
+                <p class="text-[#4d4f59] text-[14px]"> Qaytarish shartlari mahsulot toifasiga bogʻliq.</p>
+                <h1 class="text-[14px] text-[#7F4DFF]"> Batafsil</h1>
+            </div>
+            <div class="w-[385px] h-[170px]  border-2 border-zinc-300 rounded-[25px] mt-[20px] p-[20px]  sm:ml-[90px] ">
+                <div class="flex"> <img class="w-[57px] h1-[57px] "
+                        src="https://images.uzum.uz/cmt1b2rifoubkc6q35pg/shop_avatar_56_low.jpg" alt="">
+                    <div>
+                        <h3 class="text-[14px] font-semibold">"NIVEA"</h3>
+                        <div class="flex">
+                            <h1 class="text-[14px] font-semibold ">⭐️4.9</h1>
+                            <h1 class="text-[14px] ml-[10px]">97739 baho</h1>
+                        </div>
+                    </div>
+
+                </div>
+                <div
+                    class="w-[343px] h-[56px] bg-[#e6e8ed] text-center p-[18px]  mt-[20px] text-[16px] font-semibold rounded-[20px]">
+                    <h1>Do'konga o'tish</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="w-[993px] h-[56px] bg-zinc-300  ml-[25px]  rounded-[10px]  text-center p-[18px] font-semibold mt-[0px] hidden lg:block">
+        <h1>Hamma sharhlarni koʻrish</h1>
+
+    </div>
+    <div
+        class="w-[143px] h-[40px] bg-black rounded-[25px] pl-[16px] pt-[8px] text-[16px] text-white ml-[25px] mt-[50px]">
+        <h1>Mahsulot tavsifi</h1>
+    </div>
+    <p class="text-[16px] ml-[25px] mt-[40px]">Murakkab <br>
+        Butane, Aqua, Isobutane, Propane, Cyclomethicone, Aluminum Chlorohydrate, C12-15 Alkyl Benzoate, Octyldodecanol,
+        Dicaprylyl Ether <br>
+        Palmitamidopropyltrimonium Chloride, Butyloctanoic Acid, Propylene Glycol, Cetyl PEG/PPG-10/1 Dimethicone,
+        Sorbitan Trioleate, Phenoxyethanol, <br> Linalool, Limonene, Geraniol, Parfum.
+
+    </p>
+    <div class="flex ml-[80px]">
+
+
+        <div class="flex">
+            <section class=" uzbek">
+
+                <div class=" ">
+                    <div class="flex gap-2  ">
+                        <section class="flex">
+                            <div class="flex text-[28px] gap-5 items-center ml-[15px]  ">
+
+                            </div>
+                            <div class="flex">
+                                <div class="mt-[60px] ml-[px] flex gap-10">
+                                    <div>
+                                        <i class="fa-regular fa-heart absolute z-10 ml-[212px]"></i>
+                                        {%if kit.aktiv%}
+                                        <div
+                                            class=" flex bg-white rounded-[8px] text-[8px] absolute z-10  p-[2px] rounded-sm mt-[295px] ">
+                                            <img class="w-[12px] h-[12px]"
+                                                src="https://static.uzum.uz/market/badge-icons/verified.png" alt="">
+                                            <h1>ORGINAL</h1>
+                                        </div>
+                                        {% endif%}
+                                        <a href="{% url 'detail' kit.id %}"> <img
+                                                class=" w-[232px] h-[310px] rounded-[5px]" src="{{kit.liga.url}}"
+                                                alt=""></a>
+
+                                        <h1 class="text-[20px]">{{kit.narxi}}</h1>
+                                        <h1 class="text-[12px] text-zinc-400">{{kit.narxi1}}</h1>
+                                        <h1 class="bg-[#ffff00] w-[143px] ps-[8px] mt-2 mb-2 rounded-[5px]">{{kit.namc}}
+                                        </h1>
+                                        <h1 class="w-[240px]">{{kit.tavk}}</h1>
+                                        <div class="flex gap-2 mt-2 mb-2">
+                                            <h1>{{kit.namr}}</h1>
+                                            <h1 class="text-[#4d4f29]">{{kit.tavt}}</h1>
+                                        </div>
+                                        <div
+                                            class="bg-[#7000ff] flex w-[224px] h-[32px] items-center text-white justify-center font-bold rounded-[5px]">
+                                            <i class="fa-solid fa-basket-shopping "></i>
+                                            Ertaga
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+        </div>
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>
